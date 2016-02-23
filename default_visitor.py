@@ -13,7 +13,7 @@ class StdVisitor:
 	def attribRemove(self, path, element, attribs):
 		self.out(path, "modify", ET.tostring(element)+" attribute "+str(attribs)+" are removed")
 
-	def attribModify(self, path, self_element, other_element, attribModify):
+	def attribModify(self, path, self_element, other_element, attribs):
 		self.out(path, "modify", "from "+ET.tostring(self_element)+" to "+ET.tostring(other_element) + " attribs "+str(attribs)+" are modified")
 
 	def childElementAdd(self, path, element, children):
