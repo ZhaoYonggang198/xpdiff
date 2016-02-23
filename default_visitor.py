@@ -3,6 +3,8 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET
 
+
+
 class StdVisitor:
 	def out(self, path, op, content):
 		print("\t\t\t".join(["".join([e.tag for e in path ]), op, content]))
@@ -20,13 +22,13 @@ class StdVisitor:
 		for child in children:
 			newpath = path[0:]
 			newpath.append(child)
-			self.out( newpath, "add", "node "+ET.tostring(child))
+			self.out( newpath, "add", "node "+ET.tostring(child).replace("\n", ""))
 
 	def childElementRemove(self, path, self_element, children):
 		for child in children:
 			newpath = path[0:]
 			newpath.append(child)
-			self.out( newpath, "remove", "node "+ET.tostring(child))
+			self.out( newpath, "remove", "node "+ET.tostring(child).replace("\n", ""))
 	
 
 
