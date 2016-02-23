@@ -9,9 +9,10 @@ except ImportError:
 
 if len(sys.argv) != 3:
 	sys.stderr.write("Usage: python %s oldfile newfile" % sys.argv[0])
+	return
 
-oldTree = MyElementTree(ET.parse(sys.argv[1]))
-newTree = MyElementTree(ET.parse(sys.argv[2]))
+oldTree = MyElementTree(ET.parse(sys.argv[1]).getroot())
+newTree = MyElementTree(ET.parse(sys.argv[2]).getroot())
 visitor = StdVisitor()
 
 xml_compare_with_visitor(oldTree, newTree, visitor)
